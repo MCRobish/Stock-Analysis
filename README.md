@@ -17,11 +17,38 @@ Total volume is also reported in this table, which is a helpful indicator to per
 
 ** VBA Code Details**
 
-The refactored code uses arrays to store the results for the trading volume, starting price, and ending price for each of the stocks. 
-<p align="center" width="100%">
-    <img width="33%" src=https://user-images.githubusercontent.com/105991478/175824523-478eda23-5710-4355-8c00-1a0bd69dfda1.png>
-</p>
+The refactored code uses arrays to store the results for the trading volume, starting price, and ending price for each of the stocks. These were defined to contain results for the 12 tickers that were defined in the ticker array. 
 
+```    Dim tickerVolumes(12) As Long
+    Dim tickerStartingPrices(12) As Single
+    Dim tickerEndingPrices(12) As Single
+   'Create a for loop to initialize the arrays to zero.
+    For j = 0 To 11
+    
+        tickerVolumes(j) = 0
+        tickerStartingPrices(j) = 0
+        tickerEndingPrices(j) = 0
+    Next j
+```
+The trading volume for the individual tickers was calculated within a For loop using the formula: `tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value`
+
+The starting prices and ending prices were calculated by comparing the tickers from the rows above and below to find the first of that ticker value
+```
+ 'Check if the current row is the first row with the selected tickerIndex.If so, define starting price
+        
+            If Cells(i - 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1).Value = tickers(tickerIndex) Then
+            tickerStartingPrices(tickerIndex) = Cells(i, 6).Value
+            End If
+
+        
+ 'Check if the current row is the last row with the selected ticker. If so, define ending price
+ 'If the next row’s ticker doesn’t match, increase the tickerIndex.
+        
+            If Cells(i + 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1).Value = tickers(tickerIndex) Then
+            tickerEndingPrices(tickerIndex) = Cells(i, 6).Value
+```
 
 ## References
 (1) Nickolas, Steven. "Using Trading Volume to Understand Investment Activity." _Investors analyze trading volume when deciding whether to buy or sell a security,_ 01 Apr. 2022, https://www.investopedia.com/ask/answers/041015/why-trading-volume-important-investors.asp Accessed 26 June 2022.
+        
+
