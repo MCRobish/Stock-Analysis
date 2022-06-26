@@ -58,6 +58,17 @@ The results of these calculations were filled into the _All Stocks Analysis_ wor
         Cells(i + 4, 2).Value = tickerVolumes(i)
         Cells(i + 4, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
 ```
+The time to calculate these values for 2018 for the original macro was: 
+<p align="center" width="100%">
+   <img width="33%" src=https://user-images.githubusercontent.com/105991478/175825764-46881ccb-c8a2-4565-a34b-7ea5b0de074d.png>
+</p>
+The refactored macro was able to process the calculation in a much lower amount of time: 
+
+<p align="center" width="100%">
+   <img width="33%" src=https://user-images.githubusercontent.com/105991478/175825836-f19f8ee7-96c1-47a5-9ed1-380e25cd0806.png>
+</p>
+
+
 
 ## References
 (1) Nickolas, Steven. "Using Trading Volume to Understand Investment Activity." _Investors analyze trading volume when deciding whether to buy or sell a security,_ 01 Apr. 2022, https://www.investopedia.com/ask/answers/041015/why-trading-volume-important-investors.asp Accessed 26 June 2022.
