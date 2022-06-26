@@ -3,7 +3,7 @@
 Steve's parents would like to invest their money in renewable energy, but Steve has some concerns about the risk of low returns for the company they have selected. Steve would like to have an efficient macro that is able to analyze the results of many stock prices over multiple years. This would allow him to choose some stocks that have lower risk but still meet their parents interests in green energy. The inital code used looped through the dataset multiple times which is too slow for a large data set. The goal is to reduce the time to execute this code while maintaining accuracy. The initial code is stored in this repository under **green_stocks.xlsm.** The refactored macro with faster results is stored in the _challenge_ folder in this repository as **refactoring of greenstocks challenge.xlsm.** 
 
 ## Results
-**Stock Performance**
+### Stock Performance
 
 The stock returns and total daily volume are shown below for the two years in the dataset. 
 <p align="center" width="100%">
@@ -15,7 +15,7 @@ Overall, the returns for 2017 were significantly better for the green energy sto
 Total volume is also reported in this table, which is a helpful indicator to performance. Generally, there is a correlation between the total volume and the stock price. When the trading volume is increasing, it will often indicate the stock price will trend upwards because of elevated interest. If the trading volume decreases, it may mean it is time to sell before there is a larger price reversal.(1)
 
 
-**VBA Code Details**
+### VBA Code Details
 
 The refactored code uses arrays to store the results for the trading volume, starting price, and ending price for each of the stocks. These were defined to contain results for the 12 tickers that were defined in the ticker array. 
 
@@ -68,7 +68,14 @@ The refactored macro was able to process the calculation in a much lower amount 
    <img width="33%" src=https://user-images.githubusercontent.com/105991478/175825836-f19f8ee7-96c1-47a5-9ed1-380e25cd0806.png>
 </p>
 
+## Summary
+**Advantages and Disadvantages of refactoring code**
 
+It can be beneficial to refactor code because it can reduce the run time for the macro. The main problem with refactoring code is making a change that disrupts the calculations and gives an incorrect result. It is important to test the output results to verify that any changes are truly working. 
+
+**Advantages and Disadvantages of original and refactored VBA Script**
+
+The advantage of the refactored script is mainly that it processes faster, so more data could be processed if needed. However, the benefit of the original code is that it is easier to add new ticker values into the calculation. If a new ticker needed to be included, only the _ticker_ array would need to be updated in the original script, but in the refactored script, the for loops for the output arrays would also need to be updated. Both versions of the VBA script have the limitation that the data must be properly sorted by the ticker value and the date, or the starting and ending prices given will be incorrect. 
 
 ## References
 (1) Nickolas, Steven. "Using Trading Volume to Understand Investment Activity." _Investors analyze trading volume when deciding whether to buy or sell a security,_ 01 Apr. 2022, https://www.investopedia.com/ask/answers/041015/why-trading-volume-important-investors.asp Accessed 26 June 2022.
