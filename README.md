@@ -17,9 +17,10 @@ Total volume is also reported in this table, which is a helpful indicator to per
 
 ** VBA Code Details**
 
-
-
-
+The refactored code uses arrays to store the results for the trading volume, starting price, and ending price for each of the stocks. 
+<p align="center" width="100%">
+    <img width="33%" src=https://user-images.githubusercontent.com/105991478/175824523-478eda23-5710-4355-8c00-1a0bd69dfda1.png>
+</p>
 
 
 ## References
