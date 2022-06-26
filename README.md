@@ -15,7 +15,7 @@ Overall, the returns for 2017 were significantly better for the green energy sto
 Total volume is also reported in this table, which is a helpful indicator to performance. Generally, there is a correlation between the total volume and the stock price. When the trading volume is increasing, it will often indicate the stock price will trend upwards because of elevated interest. If the trading volume decreases, it may mean it is time to sell before there is a larger price reversal.(1)
 
 
-** VBA Code Details**
+**VBA Code Details**
 
 The refactored code uses arrays to store the results for the trading volume, starting price, and ending price for each of the stocks. These were defined to contain results for the 12 tickers that were defined in the ticker array. 
 
@@ -30,7 +30,7 @@ The refactored code uses arrays to store the results for the trading volume, sta
         tickerEndingPrices(j) = 0
     Next j
 ```
-The trading volume for the individual tickers was calculated within a For loop using the formula: `tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value`
+The trading volume for the individual tickers was calculated within a `For` loop using the formula: `tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value`
 
 The starting prices and ending prices were calculated by comparing the tickers from the rows above and below to find the first of that ticker value
 ```
@@ -46,6 +46,17 @@ The starting prices and ending prices were calculated by comparing the tickers f
         
             If Cells(i + 1, 1).Value <> tickers(tickerIndex) And Cells(i, 1).Value = tickers(tickerIndex) Then
             tickerEndingPrices(tickerIndex) = Cells(i, 6).Value
+```
+
+The tickerIndex variable was advanced to the next ticker using `tickerIndex = tickerIndex + 1` in the ending price `IF` statement because the statement is true when the last row of a given ticker was found. 
+
+The results of these calculations were filled into the _All Stocks Analysis_ worksheet using this code: 
+
+```
+  Worksheets("All Stocks Analysis").Activate
+        Cells(i + 4, 1).Value = tickers(i)
+        Cells(i + 4, 2).Value = tickerVolumes(i)
+        Cells(i + 4, 3).Value = tickerEndingPrices(i) / tickerStartingPrices(i) - 1
 ```
 
 ## References
